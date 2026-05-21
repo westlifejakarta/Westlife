@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Westlife Ticket Category</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    padding-bottom:120px;
+}
+
+/* HEADER */
+.header{
+    padding:30px 20px;
+    text-align:center;
+    background:#ffffff;
+}
+
+.header h1{
+    font-size:38px;
+    color:#102b5c;
+    line-height:1.4;
+    font-weight:800;
+}
+
+/* LAYOUT IMAGE */
+.layout{
+    padding:20px;
+}
+
+.layout img{
+    width:100%;
+    border-radius:20px;
+    display:block;
+}
+
+/* SECTION TITLE */
+.section-title{
+    padding:10px 20px 25px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#102b5c;
+    font-weight:900;
+}
+
+/* CARD */
+.ticket-container{
+    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.ticket-card{
+    background:#fff;
+    border-radius:25px;
+    padding:35px;
+    border:2px solid #e9e9e9;
+    box-shadow:0 5px 20px rgba(0,0,0,0.04);
+}
+
+.ticket-title{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#111;
+    font-weight:700;
+}
+
+.ticket-info{
+    margin-bottom:25px;
+}
+
+.ticket-info li{
+    margin-left:30px;
+    margin-bottom:14px;
+    font-size:31px;
+    color:#333;
+    font-style:italic;
+}
+
+.ticket-footer{
+    border-top:2px dashed #e5e5e5;
+    padding-top:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.ticket-price{
+    font-size:42px;
+    font-weight:800;
+    color:#111;
+}
+
+.ticket-action{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+/* BUTTON SOLD */
+.soldout-btn{
+    background:#fff0f0;
+    border:3px solid #ff6b6b;
+    color:#ff3d3d;
+    padding:18px 35px;
+    border-radius:20px;
+    font-size:30px;
+    font-weight:700;
+}
+
+/* QUANTITY */
+.qty-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.qty-btn{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:15px;
+    font-size:32px;
+    background:#102b5c;
+    color:#fff;
+    cursor:pointer;
+}
+
+.qty-number{
+    font-size:32px;
+    font-weight:bold;
+    min-width:30px;
+    text-align:center;
+}
+
+/* COUNTDOWN */
+.countdown{
+    margin-top:20px;
+    color:#0d6efd;
+    font-size:26px;
+}
+
+/* STICKY CHECKOUT */
+.checkout-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    padding:20px;
+    box-shadow:0 -5px 20px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.subtotal{
+    flex:1;
+}
+
+.subtotal small{
+    font-size:24px;
+    color:#777;
+}
+
+.subtotal h3{
+    font-size:42px;
+    margin-top:5px;
+    color:#111;
+}
+
+.order-btn{
+    width:45%;
+    border:none;
+    background:#102b5c;
+    color:#fff;
+    padding:25px;
+    border-radius:20px;
+    font-size:32px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.order-btn:disabled{
+    background:#bfc7d8;
+    cursor:not-allowed;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .section-title h2{
+        font-size:25px;
+    }
+
+    .ticket-title{
+        font-size:26px;
+    }
+
+    .ticket-info li{
+        font-size:18px;
+    }
+
+    .ticket-price{
+        font-size:28px;
+    }
+
+    .soldout-btn{
+        font-size:18px;
+        padding:12px 18px;
+    }
+
+    .qty-btn{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .qty-number{
+        font-size:22px;
+    }
+
+    .countdown{
+        font-size:16px;
+    }
+
+    .subtotal small{
+        font-size:14px;
+    }
+
+    .subtotal h3{
+        font-size:24px;
+    }
+
+    .order-btn{
+        font-size:20px;
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>
+        Westlife 25 Years Of Hits The Anniversary World Tour 2027
+    </h1>
+</div>
+
+<!-- LAYOUT IMAGE -->
+<div class="layout">
+    <img src="layout.jpg" alt="Seat Layout">
+</div>
+
+<!-- TITLE -->
+<div class="section-title">
+    <h2>PROMOTOR PRESALE (FOLAGO PRIVE)</h2>
+</div>
+
+<!-- TICKET LIST -->
+<div class="ticket-container">
+
+    <!-- VIP -->
+    <div class="ticket-card">
+        <div class="ticket-title">VIP</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+            <div class="ticket-price">
+                Rp. 2.750.000
+            </div>
+
+            <button class="soldout-btn">
+                Habis Terjual
+            </button>
+        </div>
+    </div>
+
+    <!-- CAT 1 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 1</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="countdown">
+            ⏰ Penjualan berakhir pada 22 May 2026 • 23:59
+        </div>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 2.500.000
+            </div>
+
+            <div class="ticket-action">
+
+                <div class="qty-box">
+                    <button class="qty-btn" onclick="minusQty('cat1',2500000)">-</button>
+
+                    <div class="qty-number" id="cat1Qty">0</div>
+
+                    <button class="qty-btn" onclick="plusQty('cat1',2500000)">+</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAT 2 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 2</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 2.250.000
+            </div>
+
+            <div class="qty-box">
+                <button class="qty-btn" onclick="minusQty('cat2',2250000)">-</button>
+
+                <div class="qty-number" id="cat2Qty">0</div>
+
+                <button class="qty-btn" onclick="plusQty('cat2',2250000)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAT 3 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 3</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 1.850.000
+            </div>
+
+            <div class="qty-box">
+                <button class="qty-btn" onclick="minusQty('cat3',1850000)">-</button>
+
+                <div class="qty-number" id="cat3Qty">0</div>
+
+                <button class="qty-btn" onclick="plusQty('cat3',1850000)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAT 4 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 4</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 1.450.000
+            </div>
+
+            <div class="qty-box">
+                <button class="qty-btn" onclick="minusQty('cat4',1450000)">-</button>
+
+                <div class="qty-number" id="cat4Qty">0</div>
+
+                <button class="qty-btn" onclick="plusQty('cat4',1450000)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAT 5 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 5</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 1.250.000
+            </div>
+
+            <div class="qty-box">
+                <button class="qty-btn" onclick="minusQty('cat5',1250000)">-</button>
+
+                <div class="qty-number" id="cat5Qty">0</div>
+
+                <button class="qty-btn" onclick="plusQty('cat5',1250000)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAT 6 -->
+    <div class="ticket-card">
+
+        <div class="ticket-title">CAT 6</div>
+
+        <ul class="ticket-info">
+            <li>Numbered Seat</li>
+            <li>Price exclude local tax & admin fee</li>
+        </ul>
+
+        <div class="ticket-footer">
+
+            <div class="ticket-price">
+                Rp. 850.000
+            </div>
+
+            <div class="qty-box">
+                <button class="qty-btn" onclick="minusQty('cat6',850000)">-</button>
+
+                <div class="qty-number" id="cat6Qty">0</div>
+
+                <button class="qty-btn" onclick="plusQty('cat6',850000)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CHECKOUT -->
+<div class="checkout-bar">
+
+    <div class="subtotal">
+        <small>Subtotal (<span id="totalTicket">0</span> ticket)</small>
+        <h3 id="subtotalPrice">Rp. 0</h3>
+    </div>
+
+    <button class="order-btn" id="orderBtn" disabled>
+        Order Now
+    </button>
+
+</div>
+
+<script>
+
+let total = 0;
+let totalTicket = 0;
+
+const quantities = {
+    cat1:0,
+    cat2:0,
+    cat3:0,
+    cat4:0,
+    cat5:0,
+    cat6:0
+};
+
+function plusQty(id, price){
+
+    quantities[id]++;
+
+    total += price;
+    totalTicket++;
+
+    updateUI(id);
+}
+
+function minusQty(id, price){
+
+    if(quantities[id] > 0){
+
+        quantities[id]--;
+
+        total -= price;
+        totalTicket--;
+
+        updateUI(id);
+    }
+}
+
+function updateUI(id){
+
+    document.getElementById(id + "Qty").innerText = quantities[id];
+
+    document.getElementById("subtotalPrice").innerText =
+        "Rp. " + total.toLocaleString("id-ID");
+
+    document.getElementById("totalTicket").innerText =
+        totalTicket;
+
+    document.getElementById("orderBtn").disabled =
+        totalTicket <= 0;
+}
+
+</script>
+
+</body>
+</html>
